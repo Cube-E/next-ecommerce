@@ -12,15 +12,15 @@ export default function Product({
   metadata,
 }: ProductType) {
   const { features } = metadata
-  const queryId = id
-  console.log("queryId", queryId)
   return (
     <Link
       href={{
         pathname: `/product/${id}`,
-        query: { name, image, unit_amount, queryId, description, features },
+        query: { name, image, unit_amount, id, description, features },
       }}>
       <div className="">
+        {image}
+        {name}
         <Image
           src={image}
           alt={name}
