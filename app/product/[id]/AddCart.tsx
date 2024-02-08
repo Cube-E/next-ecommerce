@@ -15,7 +15,6 @@ export default function AddCart({
   const [added, setAdded] = useState(false)
 
   const handleAddToCart = () => {
-    console.log(name, unit_amount, id)
     cartStore.addProduct({ id, name, unit_amount, quantity, image })
     setAdded(true)
     setTimeout(() => setAdded(false), 500)

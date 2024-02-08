@@ -13,6 +13,7 @@ export default function Product({
 }: ProductType) {
   const { features } = metadata
   const queryId = id
+  console.log("queryId", queryId)
   return (
     <Link
       href={{
