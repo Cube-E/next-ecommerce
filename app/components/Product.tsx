@@ -19,8 +19,6 @@ export default function Product({
         query: { name, image, unit_amount, id, description, features },
       }}>
       <div className="">
-        {image}
-        {name}
         <Image
           src={image}
           alt={name}

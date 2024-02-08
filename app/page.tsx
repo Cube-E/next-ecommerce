@@ -15,12 +15,6 @@ const getProducts = async () => {
     products.data.map(async (product) => {
       const prices = await stripe.prices.list({ product: product.id })
       const features = product.metadata.features || ""
-      console.log(
-        product.name,
-        prices.data[0].unit_amount,
-        product.id,
-        product.description
-      )
       return {
         name: product.name,
         unit_amount: prices.data[0].unit_amount,
