@@ -58,7 +58,7 @@ export default function Nav() {
                 />
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-4 space-y-4 shadow bg-base-100 rounded-box w-72">
+                  className="dropdown-content menu p-4 space-y-4 shadow bg-base-200 rounded-box w-72">
                   <Link
                     href={"/dashboard"}
                     className="hover:bg-base-300 p-4 rounded-md"
@@ -81,10 +81,6 @@ export default function Nav() {
                   </li>
                 </ul>
               </div>
-            </li>
-
-            <li className="bg-primary text-white py-2 px-4 rounded-md">
-              <button onClick={() => signOut()}>Sign Out</button>
             </li>
           </>
         )}
