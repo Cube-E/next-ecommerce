@@ -15,6 +15,12 @@ const getProducts = async () => {
     products.data.map(async (product) => {
       const prices = await stripe.prices.list({ product: product.id })
       const features = product.metadata.features || ""
+      console.log(
+        product.name,
+        prices.data[0].unit_amount,
+        product.id,
+        product.description
+      )
       return {
         id: product.id,
         name: product.name,
@@ -33,9 +39,9 @@ export default async function Home() {
   const products = await getProducts()
   return (
     <main className="grid grid-cols-fluid gap-12">
-        {products.map((product) => (
-            <Product {...product} key={product.id}></Product>
-        ))}
+      {products.map((product) => (
+        <Product {...product} key={product.id}></Product>
+      ))}
     </main>
   )
 }
