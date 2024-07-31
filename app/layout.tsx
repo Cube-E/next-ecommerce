@@ -2,6 +2,8 @@ import "./globals.css"
 import { Roboto, Lobster_Two } from "next/font/google"
 import Nav from "./components/Nav"
 import Hydrate from "./components/Hydrate"
+import Image from "next/image"
+import frontgrill from "@/assets/frontpagegrill.jpg"
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -31,8 +33,10 @@ export default async function RootLayout({
   return (
     <html className={`${roboto.variable} ${lobster.variable}  `} lang="en">
       <Hydrate>
-        <Nav />
-        {children}
+        <div className="relative z-0 flex">
+          <Nav />
+          {children}
+        </div>
       </Hydrate>
     </html>
   )

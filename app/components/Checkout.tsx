@@ -30,7 +30,6 @@ export default function Checkout() {
       setStripeTheme("stripe")
     }
 
-    console.log("A")
     // create a payment intent as soon as the page loads
     fetch("/api/create-payment-intent", {
       method: "POST",

@@ -22,9 +22,9 @@ export default function Product({
         <Image
           src={image}
           alt={name}
-          width={800}
-          height={800}
-          className="rounded-md w-full h-70 object-cover"
+          width={400}
+          height={400}
+          className="rounded-md h-48 w-48 object-cover"
           priority={true}
         />
         <div className="font-medium py-2">

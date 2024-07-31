@@ -4,7 +4,6 @@
 import { ReactNode, useEffect, useState } from "react"
 import { useThemeStore } from "@/store"
 import { SessionProvider } from "next-auth/react"
-
 export default function Hydrate({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false)
   const themeStore = useThemeStore()
@@ -15,7 +14,7 @@ export default function Hydrate({ children }: { children: ReactNode }) {
   return (
     <SessionProvider>
       {isHydrated ? (
-        <body className="px-4 lg:px-48" data-theme={themeStore.mode}>
+        <body className=" w-full" data-theme={themeStore.mode}>
           {children}
         </body>
       ) : (

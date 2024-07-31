@@ -20,7 +20,6 @@ const fetchOrders = async () => {
 
 export default async function Dashboard() {
   const orders = await fetchOrders()
-  console.log(orders)
   if (orders === null)
     return <div>You need to be logged in to view your orders</div>
   if (orders.length === 0)

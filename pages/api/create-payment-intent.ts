@@ -34,9 +34,6 @@ export default async function handler(
     const { items, payment_intent_id } = req.body
     const total = calculateOrderAmount(items)
 
-    console.log("USER ID")
-    console.log(userSession.user?.id)
-
     // All prisma code
     const orderData = {
         user: { connect: { id: userSession.user?.id } },
@@ -58,20 +55,14 @@ export default async function handler(
 
   //Check if the payment intent exists just update the order
     if (payment_intent_id) {
-        console.log("PAYMENT INTENT ID EXISTS")
-        console.log(payment_intent_id)
     const current_intent = await stripe.paymentIntents.retrieve(
       payment_intent_id
     )
-        console.log("CURRENT INTENT")
-        console.log(current_intent)
     if (current_intent) {
       const updated_intent = await stripe.paymentIntents.update(
         payment_intent_id,
         { amount: total }
       )
-        console.log("UPDATED INTENT")
-        console.log(updated_intent)
       //Fetch order with product ids
       const [existing_order, updated_order] = await Promise.all([
         prisma.order.findFirst({
@@ -103,7 +94,6 @@ export default async function handler(
       return
     }
   } else {
-    console.log("PAYMENT INTENT ID DOES NOT EXISTS")
 
     //Create a new order with prisma
     const paymentIntent = await stripe.paymentIntents.create({
